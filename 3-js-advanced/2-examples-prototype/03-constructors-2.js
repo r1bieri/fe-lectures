@@ -58,8 +58,11 @@ Person.prototype.cyborgify = function() {
 
 Person.isHuman = true;
 
-var marc = new Person('Marc', 'Diethelm');
+var marc = new Person({ firstName: 'Marc',
+                        lastName:  'Diethelm'});
 
+marc.marry('susi');
+console.log(marc.getName());
 //////////////////////////////////////////
 
 /**
@@ -87,4 +90,3 @@ var marc = new Person('Marc', 'Diethelm');
  * this.legs
  * =============================================
  */
-marc

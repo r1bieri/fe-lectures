@@ -8,4 +8,4 @@
         console.log(i++); // string
         loop(i);
     }
-})(0);
+})(10);
