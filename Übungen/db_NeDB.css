@@ -1,0 +1,69 @@
+body {
+    background: #fff;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: #000;
+}
+
+input, button {
+    width: 100%;
+    background: #fff;
+    border: solid 1px #ccc;
+    padding: 15px;
+    font-size: 20px;
+}
+
+button:hover {
+    border: solid 1px #aaa;
+}
+
+.page {
+    margin: 0 auto;
+    width: 700px;
+}
+
+.head {
+    margin: 0 0 20px 0;
+}
+
+.comments ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.comments li {
+    list-style: none;
+}
+
+.list-item {
+    font-size: 20px;
+    background: #ddd;
+    border: dotted 1px #ccc;
+    padding: 5px;
+    margin: 0 0 20px 0;
+}
+
+.item-first {
+    background-color: #bbb;
+}
+
+.item-last {
+    background-color: #bbb;
+}
+
+.item-hover {
+    background: #ccc;
+}
+
+.link-remove-item {
+    font-size: 11px;
+}
+
+.lbl-info {
+    font-size: 14px;
+    color: #000000;
+}
