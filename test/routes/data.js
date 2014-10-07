@@ -10,10 +10,19 @@ router
         res.send('respond with a resource');
         })
     .get('/products', function(req, res) {
-        var dataPath = path.join(rootPath, 'public/data','products.json');
-        // res.json({foo: 'bar'});
-        // res.sendfile('../public/data/products.json'); generiert einen Fehler
-        res.sendfile(dataPath);
+        var dataPath = path.join(rootPath, 'public/data', 'products.json');
+
+        res.format({
+            text: function () {
+                res.send('Hallo text als Antwort');
+            },
+            html: function () {
+                res.send('hey');
+            },
+            json: function () {
+                res.sendfile(dataPath);
+            }
         });
+    });
 
 module.exports = router;

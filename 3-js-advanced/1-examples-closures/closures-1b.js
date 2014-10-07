@@ -4,6 +4,7 @@ var getPost;
 	var cache = {};
 
 	getPost = function(id) {
+        console.log(id);
 		if (!cache[id]) {
 			// Get the post from a backend. Not shown here.
 			return cache[id] = 'This is Post #' + id;
@@ -17,3 +18,5 @@ var getPost;
 // calling getPost in the global context
 console.log(getPost(42));
 console.log(getPost(42));
+console.log(getPost(50));
+console.log(getPost(50));
