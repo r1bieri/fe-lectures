@@ -1,0 +1,78 @@
+#!/usr/bin/env node
+var debug = require('debug')('test');
+var app = require('../app');
+
+/* Type 3: Persistent datastore with automatic loading*/
+var Nedb = require('nedb')
+    , postings = new Nedb({ filename: 'path/to/data/postings', autoload: true });
+
+var comments = new Nedb({ filename: 'path/to/data/comments', autoload: true });
+
+app.set('port', process.env.PORT || 3000);
+
+function listDB(str, docs) {
+
+    if (docs === null) {
+
+        postings.find({}, function (err, docs) {
+            if (err) return handleError(err);
+
+            if (docs.length >= 0) {
+                console.log('default');
+
+                for (var idx = 0; idx < docs.length; idx++) {
+                    console.log('   El.[' + idx + '] ' + docs[idx].a + ' _id = ' + docs[idx]._id);
+                }
+            }
+        })
+    }
+
+    // console.log(typeof docs);
+    try {
+        // docs kann ein Array von Object oder ein einzelnes Object sein
+        console.log('Die Auswahl ' + str + ' enthält ' + docs.length.toLocaleString() + ' Datenelemente');
+
+        for (var idx = 0; idx < docs.length; idx++) {
+            console.log('   El.[' + idx + '] ' + docs[idx].id + ' '+ docs[idx].content + ' _id = ' + docs[idx]._id);
+        }
+    }catch (e){
+        if (e instanceof TypeError){
+            // Wenn kein Array übergeben wurde, führt das zu einem Laufzeitfehler
+            console.log('Die Auswahl ' + str);
+            console.log('   El.[] ' + docs.id + ' _id = ' + docs._id);
+        }else {
+            console.log(e);
+        }
+    };
+
+};
+
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+  console.log('Server start');
+
+    comments.find({},function(err,docsCom) {
+        if (docsCom.length <= 0) {
+
+            console.log('die DB docsCom  enthält keine Datenelemente');
+        } else {
+            console.log('die DB docsCom  enthält ' +docsCom.length + ' Datenelemente');
+        }
+
+    });
+
+    postings.find({},function(err,docs) {
+        if (err) return handleError(err);
+
+        if (docs.length <= 0) {
+
+            console.log('die DB postings enthält keine Datenelemente');
+        } else {
+            listDB('Shreddit ', docs);
+        }
+    });
+});
+
+function handleError(err) {
+    console.error('Error: ' + err);
+}
