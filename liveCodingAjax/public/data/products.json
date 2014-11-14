@@ -1,0 +1,14 @@
+{   "001":{
+        "name": "Tablet"
+        ,"price": "120.00"
+    }
+    ,"002":{
+        "name": "CaffeeMaker 4000"
+        ,"price": "100.00"
+    }
+    ,"003":{
+        "name": "CoffeeCup"
+        ,"price": "10.00"
+    }
+
+}

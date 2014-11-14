@@ -7,7 +7,6 @@ function Person() {
 function Adr(){
     this.street = "<unkown>"
 }
-
 Person.prototype.adresse = new Adr();
 
 var p1 = new Person()

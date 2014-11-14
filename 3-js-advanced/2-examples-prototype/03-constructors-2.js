@@ -63,6 +63,10 @@ var marc = new Person({ firstName: 'Marc',
 
 marc.marry('susi');
 console.log(marc.getName());
+console.log(marc.mood);
+marc.socialize();
+console.log(marc.mood);
+
 //////////////////////////////////////////
 
 /**
