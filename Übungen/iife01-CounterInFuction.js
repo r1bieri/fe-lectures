@@ -23,13 +23,13 @@ function makeCounter(name) {
 var counter = makeCounter('Instanz A');
 counter(); // logs: 1
 counter(); // logs: 2
-counter(); // logs:
-counter(); // logs:
+counter(); // logs: 3
+counter(); // logs: 4
 
 var counter2 = makeCounter('Instanz B');
 counter2(); // logs: 1
 counter2(); // logs: 2
-counter2(); // logs:
-counter2(); // logs:
+counter2(); // logs: 3
+counter2(); // logs: 4
 
 // i; // ReferenceError: i is not defined (it only exists inside makeCounter)
